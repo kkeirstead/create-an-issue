@@ -33,7 +33,7 @@ function logError(
 
 export async function createAnIssue(tools: Toolkit) {
   const template = tools.inputs.filename || ".github/ISSUE_TEMPLATE.md";
-  const assignees = tools.inputs.assignees;
+  const assignees = tools.context.actor;
 
   let updateExisting: Boolean | null = null;
   if (tools.inputs.update_existing) {
